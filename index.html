@@ -9,6 +9,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 </head>
 <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" data-cursor-dot></div>
+    <div class="cursor-outline" data-cursor-outline></div>
 
     <!-- Dynamic Canvas Background -->
     <canvas id="canvas-bg"></canvas>
@@ -26,8 +29,16 @@
             <a href="#achievements">Achievements</a>
             <a href="#programs">Programs</a>
             <a href="#contact">Contact</a>
+            <a href="#" id="open-gallery-btn">Gallery</a>
         </div>
-        <a href="https://www.store4robo.com/" target="_blank" class="btn-neon">Access Mainframe</a>
+        <div class="nav-right">
+            <a href="https://www.store4robo.com/" target="_blank" class="btn-neon desktop-only">Components Store</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
 
     <section id="home" class="hero">
@@ -36,9 +47,11 @@
                 <div class="live-dot"></div>
                 System Online & Operational
             </div>
-            <h1>Advancing<br><span class="highlight-1">School</span> <span class="highlight-2">Robotics</span></h1>
-            <p>From Concepts to Creations. Empowering the Innovators of Tomorrow with comprehensive STEM and Robotics education.</p>
-            <a href="#programs" class="btn-neon" style="font-size: 1.2rem; padding: 15px 40px; display: inline-block;">Explore Programs</a>
+            <h1 class="glitch-title" data-text="Advancing School Robotics">
+                Advancing<br><span class="highlight-1">School</span> <span class="highlight-2">Robotics</span>
+            </h1>
+            <p><span class="typewriter-text" data-text="From Concepts to Creations. Empowering the Innovators of Tomorrow with comprehensive STEM and Robotics education."></span><span class="typewriter-caret"></span></p>
+            <a href="#programs" class="btn-neon">Explore Programs</a>
         </div>
         
         <div class="hero-3d-container reveal">
@@ -194,6 +207,24 @@
         </div>
     </section>
 
+    <!-- Photo Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <span class="close-gallery">&times;</span>
+            <div class="section-title">
+                <h2>Photo <span>Gallery</span></h2>
+            </div>
+            <div class="photo-gallery-grid">
+                <div class="photo-item"><img src="img1.jpeg" alt="Gallery Image 1"></div>
+                <div class="photo-item"><img src="img2.jpeg" alt="Gallery Image 2"></div>
+                <div class="photo-item"><img src="img3.jpeg" alt="Gallery Image 3"></div>
+                <div class="photo-item"><img src="img4.jpeg" alt="Gallery Image 4"></div>
+                <div class="photo-item"><img src="win2023.jpeg" alt="Gallery Image 5"></div>
+                <div class="photo-item"><img src="win2024.jpeg" alt="Gallery Image 6"></div>
+            </div>
+        </div>
+    </div>
+
     <section id="programs" class="categories-section">
         <div class="section-title reveal">
             <h2>Beginner <span>Friendly</span></h2>
@@ -210,7 +241,7 @@
             <!-- MakersGrid G3 & G4 -->
             <div class="tilt-card reveal" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3" style="transition-delay: 0.1s;">
                 <div class="card-inner">
-                    <img src="img4.jpeg" class="program-img" alt="MakersGrid G3 & G4">
+                    <img src="img2.jpeg" class="program-img" alt="MakersGrid G3 & G4">
                     <h3>MakersGrid G3 & G4</h3>
                     <p>Exploration for Grades 3 & 4</p>
                 </div>
@@ -226,7 +257,7 @@
             <!-- MakersGrid G7-G9 -->
             <div class="tilt-card reveal" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.3" style="transition-delay: 0.3s;">
                 <div class="card-inner">
-                    <img src="img2.jpeg" class="program-img" alt="MakersGrid G7 & G8">
+                    <img src="img4.jpeg" class="program-img" alt="MakersGrid G7 & G8">
                     <h3>MakersGrid G7 & G8</h3>
                     <p>Advanced Creation for Grades 7 & 8</p>
                 </div>

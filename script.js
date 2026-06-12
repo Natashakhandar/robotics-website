@@ -186,37 +186,159 @@ if (statsSection) {
     observer.observe(statsSection);
 }
 
-// --- NAVBAR EFFECT ON SCROLL ---
-const navbar = document.getElementById('navbar');
+// --- NAVIGATION SCROLL EFFECT ---
 window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
     if (window.scrollY > 50) {
-        navbar.classList.add('scrolled');
+        nav.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled');
+        nav.classList.remove('scrolled');
     }
 });
 
+// --- PHOTO GALLERY MODAL ---
+const galleryModal = document.getElementById('gallery-modal');
+const openGalleryBtn = document.getElementById('open-gallery-btn');
+const closeGalleryBtn = document.querySelector('.close-gallery');
+
+if (openGalleryBtn && galleryModal && closeGalleryBtn) {
+    openGalleryBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        galleryModal.style.display = 'block';
+        // Small delay to allow display: block to apply before animating opacity
+        setTimeout(() => galleryModal.classList.add('show'), 10);
+        
+        // Close mobile menu if it's open
+        if (navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+            body.style.overflow = '';
+        }
+    });
+
+    const closeModal = () => {
+        galleryModal.classList.remove('show');
+        setTimeout(() => {
+            galleryModal.style.display = 'none';
+        }, 400); // Wait for transition
+    };
+
+    closeGalleryBtn.addEventListener('click', closeModal);
+
+    // Close when clicking outside content
+    window.addEventListener('click', (e) => {
+        if (e.target === galleryModal) {
+            closeModal();
+        }
+    });
+}
+
+// --- CUSTOM CURSOR ---
+const cursorDot = document.querySelector('[data-cursor-dot]');
+const cursorOutline = document.querySelector('[data-cursor-outline]');
+
+window.addEventListener('mousemove', function (e) {
+    // Get current HTML zoom level to fix cursor offset
+    const htmlZoom = parseFloat(getComputedStyle(document.documentElement).zoom) || 1;
+    const posX = e.clientX / htmlZoom;
+    const posY = e.clientY / htmlZoom;
+
+    if (cursorDot && cursorOutline) {
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+
+        // Smooth outline follow
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    }
+});
+
+document.addEventListener('mousedown', () => {
+    if (cursorOutline) {
+        cursorOutline.style.transform = "translate(-50%, -50%) scale(1.5)";
+        cursorOutline.style.backgroundColor = "rgba(0, 240, 255, 0.2)";
+    }
+});
+
+document.addEventListener('mouseup', () => {
+    if (cursorOutline) {
+        cursorOutline.style.transform = "translate(-50%, -50%) scale(1)";
+        cursorOutline.style.backgroundColor = "transparent";
+    }
+});
+
+// --- PARALLAX 3D HERO ICONS ---
+const heroSection = document.querySelector('.hero');
+const floatingModels = document.querySelectorAll('.floating-model');
+
+if (heroSection) {
+    heroSection.addEventListener('mousemove', (e) => {
+        const x = (window.innerWidth - e.pageX * 2) / 90;
+        const y = (window.innerHeight - e.pageY * 2) / 90;
+
+        floatingModels.forEach((model, index) => {
+            const speed = (index + 1) * 2;
+            model.style.transform = `translateX(${x * speed}px) translateY(${y * speed}px)`;
+        });
+    });
+}
+
+// --- MOBILE HAMBURGER MENU ---
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+}
+
 // --- SMOOTH SCROLL & SECTION FOCUS ANIMATION ---
 document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href').substring(1);
         const targetSection = document.getElementById(targetId);
-        
+
         if (targetSection) {
-            // Smooth scroll to section
-            targetSection.scrollIntoView({
+            window.scrollTo({
+                top: targetSection.offsetTop - 80,
                 behavior: 'smooth'
             });
-            
-            // Remove animation class from all sections to allow re-trigger
-            document.querySelectorAll('section').forEach(sec => sec.classList.remove('section-focus'));
-            
-            // Wait for scroll to finish approximately, then trigger glow
-            setTimeout(() => {
-                targetSection.classList.add('section-focus');
-            }, 600); // Trigger after scrolling is mostly done
+
+            targetSection.classList.remove('section-focus');
+            void targetSection.offsetWidth;
+            targetSection.classList.add('section-focus');
         }
     });
 });
+
+// --- MULTILINE TYPEWRITER EFFECT ---
+const typeWriterElement = document.querySelector('.typewriter-text');
+if (typeWriterElement) {
+    const text = typeWriterElement.getAttribute('data-text');
+    let index = 0;
+    
+    function type() {
+        if (index < text.length) {
+            typeWriterElement.textContent += text.charAt(index);
+            index++;
+            setTimeout(type, 30); // 30ms per character for smooth fast typing
+        }
+    }
+    
+    // Start typing after a short delay
+    setTimeout(type, 800);
+}
