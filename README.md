@@ -1,4 +1,4 @@
-# 🤖 Next-Gen Robotics Education Platform
+# Next-Gen Robotics Education Platform
 
 ![UI Showcase](https://img.shields.io/badge/UI%2FUX-Glassmorphism%20%26%20Neon-00f0ff?style=for-the-badge)
 ![Tech Stack](https://img.shields.io/badge/Tech_Stack-HTML5%20|%20CSS3%20|%20Vanilla%20JS-ff4500?style=for-the-badge)
@@ -8,24 +8,24 @@ A highly interactive, modern web platform designed to showcase STEM education, r
 
 ---
 
-## ✨ Key Features & Technical Highlights
+## Key Features & Technical Highlights
 
-### 🎨 Modern UI/UX Design
+### Modern UI/UX Design
 * **Dark Neon Aesthetic:** Carefully curated color palettes utilizing deep backgrounds (`#050508`) paired with vibrant neon accents (Cyan & Orange-Red) to create a futuristic, tech-forward vibe.
 * **Glassmorphism:** Elegant use of CSS `backdrop-filter: blur()`, semi-transparent backgrounds, and glowing gradients to create depth and hierarchy.
 * **Glowing Borders & Shadows:** Custom implementation of dynamic, pulsing neon drop-shadows and borders that react to user interaction.
 
-### 🕹️ Advanced Interactivity
+### Advanced Interactivity
 * **3D Tilt Physics:** Integrated lightweight 3D hover physics on all course cards, stat boxes, and gallery items to create a highly tactile and immersive browsing experience.
 * **Micro-Animations:** Smooth CSS transitions, off-canvas navigation scaling, and hover effects that make the interface feel alive and responsive.
 
-### 📱 Responsive & Performant
+### Responsive & Performant
 * **Fluid Typography & Layout:** Utilizes CSS `clamp()`, Flexbox, and CSS Grid to ensure the layout is pixel-perfect across all devices, from ultra-wide monitors to mobile screens.
 * **Zero-Dependency Core:** Built purely with HTML, CSS, and Vanilla JS, avoiding heavy frameworks to ensure lightning-fast load times and total control over the DOM.
 
 ---
 
-## 🏗️ Architecture & Sections
+## Architecture & Sections
 
 1. **Hero Section:** A captivating landing area with dynamic typography and call-to-action buttons.
 2. **Dynamic Stats:** Animated counter boxes showcasing impact and reach.
@@ -38,21 +38,21 @@ A highly interactive, modern web platform designed to showcase STEM education, r
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
-* **Structure:** Semantic `HTML5`
-* **Styling:** Custom `CSS3` (Variables, Flexbox, Grid, Animations, Glassmorphism)
-* **Interactivity:** `Vanilla JavaScript` (DOM manipulation, event handling)
+* **Structure:** Semantic HTML5
+* **Styling:** Custom CSS3 (Variables, Flexbox, Grid, Animations, Glassmorphism)
+* **Interactivity:** Vanilla JavaScript (DOM manipulation, event handling)
 * **Libraries:** Vanilla-Tilt.js (for performant 3D hover effects)
 
 ---
 
-## 👨‍💻 Note to Recruiters & Engineering Managers
+## Note to Recruiters & Engineering Managers
 
 This project serves as a showcase of my ability to bridge the gap between **design** and **engineering**. Rather than relying on out-of-the-box UI libraries (like Bootstrap or Tailwind), I opted to write custom CSS to demonstrate a deep understanding of browser rendering, layout algorithms, and modern CSS capabilities. 
 
-I am passionate about building user interfaces that are not only functionally robust but visually stunning. If you're looking for a frontend developer who obsesses over the details and user experience, let's connect!
+I am passionate about building user interfaces that are not only functionally robust but visually stunning.
 
 ---
 
-*Designed and engineered with passion.* 🚀
+*Designed and engineered with passion.*
